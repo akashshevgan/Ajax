@@ -37,5 +37,16 @@ console.log("Made GET AJAX Call to Server at" +showTime());
 
 const deleteURL = "http://localhost:3000/employees/4";
 function userDeleted(data) {
-    console.log("User Deleted "+data);
-} 
+    console.log("User Deleted at: " +showTime() +" data: " + data);
+}
+makeAJAXCall("DELETE", deleteURL, userDeleted, false);
+console.log("Made DELETE AJAX Call to Server at" +showTime());
+
+
+const postURL = "http://localhost:3000/employees";
+const empData = {"name": "Harry","salary":"200000"};
+function userAdded(data) {
+    console.log("User Added at: " +showTime() +" data: " + data)
+}
+makeAJAXCall("POST", postURL, userAdded,true,empData);
+console.log("Made POST AJAX Call to Server at" +showTime());
